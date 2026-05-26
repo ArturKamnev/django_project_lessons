@@ -1,0 +1,13 @@
+<h1>БОЙЦЫ МК</h1>
+
+<ul>
+    {% for i in fighter %}
+    <li>
+        <h2>Имя: {{ i.title }}</h2>
+        <img src="{{ i.photo.url }}" alt="{{ i.title }}" width="300" height="200">
+        <p>Время создания поста: {{ i.created_at }}</p>
+        <br>
+        <a href="#">Подробнее</a>
+    </li>
+    {% endfor %}
+</ul>
