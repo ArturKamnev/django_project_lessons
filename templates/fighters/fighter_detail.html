@@ -1,0 +1,14 @@
+<h1>ИМЯ - {{ fgt_id.title}}</h1>
+<img src="{{ fgt_id.photo.url }}" alt="{{ fgt_id.title }}" width="300" height="100">
+<p>ЦАРСТВО - {{ fgt_id.kindom }}</p>
+<p>ХАРАКТЕРИСТИКИ - {{ fgt_id.description }}</p>
+<p>ОРУЖИЕ - {{ fgt_id.weapon }}</p>
+{% if fgt_id.fatality %}
+<a href="{{ fgt_id.fatality }}"> ВИДЕО ФАТАЛИТИ </a>
+{% else %}
+<p>Ссылка не добавлена!</p>
+{% endif %}
+
+<p>ДАТА СОЗДАНИЯ - {{ fgt_id.created_at }}</p>
+
+<a href="{% url 'fighter_list' %}">НАЗАД</a>

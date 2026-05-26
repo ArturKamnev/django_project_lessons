@@ -22,3 +22,10 @@ class Fighter(models.Model):
 
     def __str__(self):
         return self.title
+    
+class FactsMk(models.Model):
+    facts = models.CharField(max_length=100, verbose_name="Укажите факт")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.facts} - {self.created_at}'

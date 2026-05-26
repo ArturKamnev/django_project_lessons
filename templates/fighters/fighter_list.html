@@ -7,7 +7,17 @@
         <img src="{{ i.photo.url }}" alt="{{ i.title }}" width="300" height="200">
         <p>Время создания поста: {{ i.created_at }}</p>
         <br>
-        <a href="#">Подробнее</a>
+        <a href="{% url 'fgt_id' i.id %}">Подробнее</a>
     </li>
     {% endfor %}
 </ul>
+
+<h1>ФАКТЫ</h1>
+<ol>
+    {% for fact in facts%}
+    <li>
+        <p>{{ fact.facts }}</p>
+        <p>{{ fact.created_at }}</p>
+    </li>
+    {% endfor %}
+</ol>
