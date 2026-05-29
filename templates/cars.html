@@ -1,0 +1,41 @@
+<h1>МАШИНЫ</h1>
+
+<ul>
+    {% for i in cars %}
+    <li>
+        <h2>Название машины: {{ i.name_car }}</h2>
+        <p>Владелец: {{ i.owner_car }}</p>
+        <br>
+        <p>Создано: {{ i.created_at }}</p>
+
+
+        <h2>КАТЕГОРИИ</h2>
+        <p>
+            {% for car in i.categories.all %}
+            {{ car.name }} {% if not forloop.last %}, {% endif %}
+            {% empty %}
+            Категория не указана
+            {% endfor %}
+        </p>
+
+        <h2>НОМЕР МАШИНЫ</h2>
+        
+        {% if i.numbercar.number %}
+        <p>{{ i.numbercar.number }}</p>
+        {% else %}
+        <p>Номер машины не добавлен</p>
+        {% endif %}
+
+        <h3>ОТЗЫВЫ</h3>
+        <ul>
+            {% for rev in i.review.all %}
+            <li>
+                <p>Оценка: {{ rev.mark }}</p>
+                <p>Текст: {{ rev.text }}</p>
+                <p>Дата создания: {{ rev.created_at }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
