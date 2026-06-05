@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'auto',
     'download_games',
+    'users',
 ]
 
 MIDDLEWARE = [
