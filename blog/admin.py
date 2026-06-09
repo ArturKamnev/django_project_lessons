@@ -1,5 +1,10 @@
 from django.contrib import admin
 from . import models
 # Register your models here.
-admin.site.register(models.Fighter)
+@admin.register(models.Fighter)
+class FighterAdmin(admin.ModelAdmin):
+    exclude = ('views',)
+    
+
+
 admin.site.register(models.FactsMk)

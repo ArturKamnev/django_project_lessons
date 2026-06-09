@@ -43,3 +43,4 @@ def user_list_view(request):
     if request.method == "GET":
         users = models.CustomUser.objects.all().order_by('-id')
     return render(request, template_name='users/user_list.html', context={'users': users})
+

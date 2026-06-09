@@ -11,26 +11,29 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
+from . import admin_panel
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
+load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%%j@_c40+9fdi64+r&wq*m!ho8@jq_p7z#874i4h6%4%fms2uw'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+JAZZMIN_SETTINGS = admin_panel.JAZZMIN_SETTINGS
+JAZZMIN_UI_TWEAKS = admin_panel.JAZZMIN_UI_TWEAKS
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

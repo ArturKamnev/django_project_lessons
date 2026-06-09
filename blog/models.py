@@ -15,6 +15,8 @@ class Fighter(models.Model):
     weapon = models.CharField(max_length=100, verbose_name="Укажите оружие бойца", default='Кунаи')
     fatality = models.URLField(verbose_name="Укажите ссылку на фаталити", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    views = models.PositiveIntegerField(default=0, null=True)
+
 
     class Meta:
         verbose_name = 'Бойца'
