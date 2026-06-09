@@ -12,7 +12,7 @@ def register_view(request):
         form = forms.CustomRegisterForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('/login/')
         
     else:
         form = forms.CustomRegisterForm()
@@ -26,7 +26,7 @@ def auth_login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('user_list')
+            return redirect('/user_list/')
     else:
         form = AuthenticationForm()
     return render(request, template_name='users/login.html', context={'form': form})
@@ -35,7 +35,7 @@ def auth_login_view(request):
 
 def auth_logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('/login/')
 
 # user_list
 
